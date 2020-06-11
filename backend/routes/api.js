@@ -26,11 +26,11 @@ router.get('/list', function(req, res, next) {
 });
 router.post('/add', function(req, res, next) {
   const myQuery="INSERT INTO day (number,date,link,topic,sub_topic_count) VALUES ("
-                  +req.body.number
-                  +req.body.date
-                  +req.body.link
-                  +req.body.topic
-                  +req.body.sub_topic_count
+                  +req.body.number+",'"
+                  +req.body.date+"','"
+                  +req.body.link+"','"
+                  +req.body.topic+"','"
+                  +req.body.sub_topic_count+"'"
                   +");"
   con.query(myQuery, function (err, result, fields) {
 		if (err){
