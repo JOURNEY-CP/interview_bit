@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var url=require('url');
 
 const mysql = require('mysql');
 
@@ -74,7 +75,16 @@ router.put('/data', function(req, res, next) {
 		  res.send(result);
 	  });
 });
-router.put('/day', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/day/:day', function(req, res, next) {
+	const number=url.parse(req.url, true).pathname.substring(5);
+    const myQuery="SELECT * FROM data where number="+number;
+  con.query(myQuery, function (err, result, fields) {
+		if (err){
+			res.send('an error occoured');
+			//throw err;
+		}
+		console.log(result);
+		res.send(result);
+	});
 });
 module.exports = router;
