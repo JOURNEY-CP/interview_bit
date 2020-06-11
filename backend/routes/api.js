@@ -32,13 +32,24 @@ router.post('/add', function(req, res, next) {
                   +req.body.topic+"','"
                   +req.body.sub_topic_count+"'"
                   +");"
-  con.query(myQuery, function (err, result, fields) {
+  con.query(myQuery, function (err, _result, _fields) {
 		if (err){
 			res.send('an error occoured');
 			throw err;
 		}
-		console.log(result);
-		res.send(result);
+		for (i = 0; i < req.body.sub_topic_count; i++) {
+			const mySubQuery="INSERT INTO data (number,sub_topic_num,abhi,sita,harsha) VALUES ("
+  	            	+req.body.number+","
+    	        	+i+","
+    	    	    +false+","
+     	    		+false+","
+	            	+false
+					+");";
+			con.query(mySubQuery, function (err, _result, _fields){
+				if(err)res.send('an error occoured');
+			});
+		}
+		res.send("done");
 	});
 });
 router.put('/data', function(req, res, next) {

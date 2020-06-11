@@ -8,7 +8,8 @@ export default class Add extends Component {
       number:"",
       link: "",
       date: "",
-      topic: ""
+      topic: "",
+      sub_topic_count:""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -26,7 +27,7 @@ export default class Add extends Component {
             date:this.state.date,
             link:this.state.link,
             topic:this.state.topic,
-            sub_topic_count:0,
+            sub_topic_count:this.state.sub_topic_count,
         })
         .then(function (response) {
             console.log(response);
@@ -47,6 +48,9 @@ export default class Add extends Component {
         <input type='text' name='link' onChange={this.myChangeHandler}/>
         <p>topic</p>
         <input type='text' name='topic' onChange={this.myChangeHandler}/>
+        <br/>
+        <p>sub_topic_count</p>
+        <input type='text' name='sub_topic_count' onChange={this.myChangeHandler}/>
         <br/>
         <input
           type='submit'
