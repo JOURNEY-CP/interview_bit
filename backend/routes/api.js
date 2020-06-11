@@ -53,7 +53,18 @@ router.post('/add', function(req, res, next) {
 	});
 });
 router.put('/data', function(req, res, next) {
-  res.send('respond with a resource');
+	const myQuery="UPDATE data "+
+		" SET "+req.body.user+"="+req.body.state+
+		" WHERE number = "+req.body.number+" and sub_topic_num="+req.body.sub_topic_num+";";
+	console.log(myQuery);
+	con.query(myQuery, function (err, result, fields) {
+		  if (err){
+			  res.send('an error occoured');
+			  throw err;
+		  }
+		  console.log(result);
+		  res.send(result);
+	  });
 });
 router.put('/day', function(req, res, next) {
   res.send('respond with a resource');
