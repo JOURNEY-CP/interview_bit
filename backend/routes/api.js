@@ -54,8 +54,9 @@ router.post('/add', function(req, res, next) {
 	});
 });
 router.put('/data', function(req, res, next) {
+	console.log(req.body.state)
 	const myQuery="UPDATE day "+
-	" SET "+req.body.user+"="+req.body.user+"+"+(req.body.state==='true'?"1":"-1")+
+	" SET "+req.body.user+"="+req.body.user+"+"+(req.body.state===true?"1":"-1")+
 	" WHERE number = "+req.body.number+";"
 	const myQuery2=" UPDATE data "+
 		" SET "+req.body.user+"="+req.body.state+
