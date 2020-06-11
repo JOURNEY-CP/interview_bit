@@ -25,13 +25,13 @@ router.get('/list', function(req, res, next) {
 	});
 });
 router.post('/add', function(req, res, next) {
-  const myQuery="INSERT INTO day (number,date,link,topic,sub_topic_count) VALUES ("
+  const myQuery="INSERT INTO day (number,date,link,topic,sub_topic_count,abhi,sita,harsha) VALUES ("
                   +req.body.number+",'"
                   +req.body.date+"','"
                   +req.body.link+"','"
                   +req.body.topic+"','"
                   +req.body.sub_topic_count+"'"
-                  +");"
+                  +",0,0,0);"
   con.query(myQuery, function (err, _result, _fields) {
 		if (err){
 			res.send('an error occoured');
@@ -53,15 +53,23 @@ router.post('/add', function(req, res, next) {
 	});
 });
 router.put('/data', function(req, res, next) {
-	const myQuery="UPDATE data "+
+	const myQuery="UPDATE day "+
+	" SET "+req.body.user+"="+req.body.user+"+"+(req.body.state==='true'?"1":"-1")+
+	" WHERE number = "+req.body.number+";"
+	const myQuery2=" UPDATE data "+
 		" SET "+req.body.user+"="+req.body.state+
 		" WHERE number = "+req.body.number+" and sub_topic_num="+req.body.sub_topic_num+";";
-	console.log(myQuery);
 	con.query(myQuery, function (err, result, fields) {
 		  if (err){
 			  res.send('an error occoured');
 			  throw err;
 		  }
+		  con.query(myQuery2,function (err,result2,fields){
+			  if(err){
+				  res.send('error2');
+				  throw err;
+			  }
+		  })
 		  console.log(result);
 		  res.send(result);
 	  });

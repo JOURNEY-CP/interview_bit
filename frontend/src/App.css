@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.listHeading{
+  background-color: rgb(248, 252, 8);
+  border-radius: 10px;
+}
+.listHeadItem{
+  background-color: rgba(205, 205, 228, 0.788);
+  border-radius: 10px;
+  text-align: center;
+}
