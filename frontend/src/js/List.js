@@ -22,17 +22,19 @@ export default class List extends Component {
       return (
         this.state.data.map((s)=>(
             <div>
-                <div class="list">
+                <div>
                     <div class="row list">
-                        <div class="col-1">{s.number}</div>
-                        <div class="col-2">{s.date}</div>
-                        <div class="col-5">
+                        <div class="listItem col-1">
+                          <a href={"day/"+s.number}>{s.number}</a>
+                        </div>
+                        <div class="listItem col-2">{s.date}</div>
+                        <div class="listItem col-5">
                             <a href={s.link}>{s.topic}</a>
                         </div>
-                        <div class="col-1">{s.sub_topic_count}</div>
-                        <div class="col-1">{s.abhi}</div>
-                        <div class="col-1">{s.sita}</div>
-                        <div class="col-1">{s.harsha}</div>
+                        <div class="listItem col-1">{s.sub_topic_count}</div>
+                        <div class="listItem col-1">{s.abhi}</div>
+                        <div class="listItem col-1">{s.sita}</div>
+                        <div class="listItem col-1">{s.harsha}</div>
                     </div>
                 </div>
             </div>

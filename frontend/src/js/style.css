@@ -1,4 +1,9 @@
-.list{
+.listItem{
     background-color: rgb(89, 197, 240);
     border-radius: 10px;
+    color:white;
+    zoom: 1.5;
+}
+.list{
+    padding: 5px;
 }

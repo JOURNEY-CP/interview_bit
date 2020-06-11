@@ -31,15 +31,18 @@ export default class Add extends Component {
         })
         .then(function (response) {
             console.log(response);
+            alert("SUCCESS");
+            window.location.reload();
         })
         .catch(function (error) {
             console.log(error);
+            alert("FAILED")
         });
     }
   render() {
     return (
       <form >
-        <h1>Hello</h1>
+        <h1>Welcome__ADD__NEW_SUMS</h1>
         <p>day number:</p>
         <input type='text' name='number' onChange={this.myChangeHandler}/>
         <p>date:</p>

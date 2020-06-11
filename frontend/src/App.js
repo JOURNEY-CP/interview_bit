@@ -17,21 +17,30 @@ function App() {
           )}/>
           <Route exact={true} path='/' render={() => (
             <div class="listHeading row">
-              <div class="listHeadItem col-1">number</div>
+              <div class="listHeadItem col-1">day</div>
               <div class="listHeadItem col-2">date</div>
               <div class="listHeadItem col-5">link</div>
-              <div class="listHeadItem col-1">sub_topics</div>
+              <div class="listHeadItem col-1">topics</div>
               <div class="listHeadItem col-1">abhi</div>
               <div class="listHeadItem col-1">sita</div>
               <div class="listHeadItem col-1">harsha</div>
             </div>
           )}/>
+          
           <Route exact={true} path='/' render={() => (
             <div className="App">
               <List />
             </div>
           )}/>
-
+          <Route exact={true} path='/day/:num' render={() => (
+            <div class="listHeading row">
+              <div class="listHeadItem col-3">day</div>
+              <div class="listHeadItem col-3">sub_topic</div>
+              <div class="listHeadItem col-2">abhi</div>
+              <div class="listHeadItem col-2">sita</div>
+              <div class="listHeadItem col-2">harsha</div>
+            </div>
+          )}/>
           <Route exact={true} path='/day/:num' render={() => (
             <div className="App">
               <DayEdit />

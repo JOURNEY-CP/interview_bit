@@ -47,9 +47,9 @@ export default class List extends Component {
             <div>
                 <div class="list">
                     <div class="row list">
-                        <div class="col-3">{s.number}</div>
-                        <div class="col-3">{s.sub_topic_num}</div>
-                        <div class="col-2">
+                        <div class="listItem col-3">{s.number}</div>
+                        <div class="listItem col-3">{s.sub_topic_num}</div>
+                        <div class="listItem col-2">
                             <input 
                                 type="checkbox"
                                 defaultChecked={s.abhi} 
@@ -57,7 +57,7 @@ export default class List extends Component {
                                 onChange={this.handleClick}
                             />
                         </div>
-                        <div class="col-2">
+                        <div class="listItem col-2">
                             <input 
                                 type="checkbox"
                                 defaultChecked={s.sita} 
@@ -65,7 +65,7 @@ export default class List extends Component {
                                 onChange={this.handleClick}
                             />
                         </div>
-                        <div class="col-2">
+                        <div class="listItem col-2">
                             <input 
                                 type="checkbox"
                                 defaultChecked={s.harsha} 
